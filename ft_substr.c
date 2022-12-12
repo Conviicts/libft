@@ -6,22 +6,23 @@
 /*   By: jode-vri <jode-vri@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/09/16 21:32:42 by jode-vri          #+#    #+#             */
-/*   Updated: 2020/09/17 17:45:00 by jode-vri         ###   ########.fr       */
+/*   Updated: 2022/12/12 08:50:54 by jode-vri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_substr(char const *s, unsigned int start, size_t len)
+char	*ft_substr(char const *s, UINT start, size_t len)
 {
 	size_t		i;
 	char		*result;
 
 	if (!s)
 		return (NULL);
-	if (start >= (unsigned int)ft_strlen(s))
+	if (start >= (UINT)ft_strlen(s))
 		return (ft_strdup(""));
-	if ((result = malloc(sizeof(char) * (len + 1))) == NULL)
+	result = malloc(sizeof(char) * (len + 1));
+	if (!result)
 		return (NULL);
 	i = 0;
 	while (i < len && s[i])

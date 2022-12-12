@@ -6,7 +6,7 @@
 /*   By: jode-vri <jode-vri@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/09/06 21:57:57 by jode-vri          #+#    #+#             */
-/*   Updated: 2020/09/06 21:59:48 by jode-vri         ###   ########.fr       */
+/*   Updated: 2022/12/12 08:41:36 by jode-vri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 char	*ft_strrchr(const char *s, int c)
 {
-	int len;
+	int	len;
 
 	len = ft_strlen(s);
 	while (len >= 0 && s[len] != c)

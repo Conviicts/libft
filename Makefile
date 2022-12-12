@@ -16,6 +16,7 @@ SRCS		=	ft_memset.c  	\
 				ft_strchr.c  	\
 				ft_strrchr.c 	\
 				ft_strncmp.c 	\
+				ft_strcmp.c		\
 				ft_strlcpy.c 	\
 				ft_strlcat.c 	\
 				ft_strnstr.c 	\
@@ -25,7 +26,6 @@ SRCS		=	ft_memset.c  	\
 				ft_substr.c		\
 				ft_strjoin.c	\
 				ft_strtrim.c	\
-				ft_split.c		\
 				ft_itoa.c    	\
 				ft_strmapi.c	\
 				ft_putchar_fd.c	\
@@ -40,8 +40,7 @@ SRCS_BONUS	=	ft_lstnew.c			\
 				ft_lstadd_back.c	\
 				ft_lstdelone.c		\
 				ft_lstclear.c		\
-				ft_lstiter.c		\
-				ft_lstmap.c
+				ft_lstiter.c
 
 OBJS		= ${SRCS:.c=.o}
 OBJS_BONUS	= ${SRCS_BONUS:.c=.o}

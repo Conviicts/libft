@@ -6,50 +6,57 @@
 /*   By: jode-vri <jode-vri@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/09/06 21:57:20 by jode-vri          #+#    #+#             */
-/*   Updated: 2020/11/16 15:15:55 by jode-vri         ###   ########.fr       */
+/*   Updated: 2022/12/12 08:54:01 by jode-vri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-static int	get_length(unsigned int n)
+static int	ft_abs(int nbr)
 {
-	unsigned int i;
-
-	i = 0;
-	while (n >= 10)
-	{
-		n /= 10;
-		i++;
-	}
-	return (i + 1);
+	if (nbr < 0)
+		return (-nbr);
+	else
+		return (nbr);
 }
 
-char		*ft_itoa(int n)
+static void	ft_strrev(char *str)
 {
-	char			*dest;
-	unsigned int	len;
-	unsigned int	nb;
-	unsigned int	i;
+	size_t	length;
+	size_t	i;
+	char	tmp;
 
-	nb = (n < 0 ? -n : n);
-	len = get_length(nb);
+	length = ft_strlen(str);
 	i = 0;
-	if (!(dest = (char *)malloc(sizeof(char) * len + 1 + (n < 0 ? 1 : 0))))
+	while (i < length / 2)
+	{
+		tmp = str[i];
+		str[i] = str[length - i - 1];
+		str[length - i - 1] = tmp;
+		i++;
+	}
+}
+
+char	*ft_itoa(int n)
+{
+	char	*str;
+	int		is_neg;
+	size_t	length;
+
+	is_neg = (n < 0);
+	str = ft_calloc(11 + is_neg, sizeof(*str));
+	if (!str)
 		return (NULL);
-	if (n < 0)
+	if (n == 0)
+		str[0] = '0';
+	length = 0;
+	while (n != 0)
 	{
-		dest[i] = '-';
-		len++;
+		str[length++] = '0' + ft_abs(n % 10);
+		n = (n / 10);
 	}
-	i = len - 1;
-	while (nb >= 10)
-	{
-		dest[i] = nb % 10 + '0';
-		nb /= 10;
-		i--;
-	}
-	dest[i] = nb % 10 + '0';
-	dest[len] = '\0';
-	return (dest);
+	if (is_neg)
+		str[length] = '-';
+	ft_strrev(str);
+	return (str);
 }

@@ -6,7 +6,7 @@
 /*   By: jode-vri <jode-vri@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/09/06 21:57:40 by jode-vri          #+#    #+#             */
-/*   Updated: 2020/09/06 22:01:26 by jode-vri         ###   ########.fr       */
+/*   Updated: 2022/12/12 08:48:56 by jode-vri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,8 @@ char	*ft_strdup(const char *s1)
 
 	len = ft_strlen(s1);
 	i = -1;
-	if ((result = malloc(sizeof(char) * (len + 1))) == NULL)
+	result = malloc(sizeof(char) * (len + 1));
+	if (!result)
 		return (NULL);
 	while (s1[++i])
 		result[i] = s1[i];

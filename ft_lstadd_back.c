@@ -6,7 +6,7 @@
 /*   By: jode-vri <jode-vri@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/07 22:21:12 by convicts          #+#    #+#             */
-/*   Updated: 2020/11/15 12:23:58 by jode-vri         ###   ########.fr       */
+/*   Updated: 2022/12/12 08:41:27 by jode-vri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 void	ft_lstadd_back(t_list **alst, t_list *new)
 {
-	t_list *list;
+	t_list	*list;
 
 	if (!alst || !new)
 		return ;

@@ -6,7 +6,7 @@
 /*   By: jode-vri <jode-vri@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/09/11 21:12:06 by jode-vri          #+#    #+#             */
-/*   Updated: 2020/09/17 17:47:54 by jode-vri         ###   ########.fr       */
+/*   Updated: 2022/12/12 08:50:54 by jode-vri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,15 +14,15 @@
 
 void	ft_putnbr_fd(int n, int fd)
 {
-	unsigned int	nbr;
+	UINT	nbr;
 
 	if (n < 0)
 	{
 		ft_putchar_fd('-', fd);
-		nbr = (unsigned int)(n * -1);
+		nbr = (UINT)(n * -1);
 	}
 	else
-		nbr = (unsigned int)n;
+		nbr = (UINT)n;
 	if (nbr >= 10)
 		ft_putnbr_fd(nbr / 10, fd);
 	ft_putchar_fd((char)(nbr % 10 + '0'), fd);

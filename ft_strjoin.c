@@ -6,7 +6,7 @@
 /*   By: jode-vri <jode-vri@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/09/11 20:58:07 by jode-vri          #+#    #+#             */
-/*   Updated: 2020/11/16 15:16:29 by jode-vri         ###   ########.fr       */
+/*   Updated: 2022/12/12 08:46:51 by jode-vri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,8 @@ char	*ft_strjoin(char const *s1, char const *s2)
 		return (NULL);
 	length = ft_strlen(s1);
 	length += ft_strlen(s2);
-	if ((result = malloc(sizeof(char) * (length + 1))) == NULL)
+	result = malloc(sizeof(char) * (length + 1));
+	if (!result)
 		return (NULL);
 	i = -1;
 	while (s1 && s1[++i])

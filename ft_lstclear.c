@@ -6,7 +6,7 @@
 /*   By: jode-vri <jode-vri@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/07 22:49:29 by convicts          #+#    #+#             */
-/*   Updated: 2020/11/15 12:25:12 by jode-vri         ###   ########.fr       */
+/*   Updated: 2022/12/12 08:45:39 by jode-vri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,11 +22,13 @@ void	ft_lstclear(t_list **lst, void (*del)(void*))
 		ft_lstdelone(*lst, del);
 		*lst = temp;
 		if (temp)
+		{
 			while (temp)
 			{
 				temp = (*lst)->next;
 				ft_lstdelone(*lst, del);
 				*lst = temp;
 			}
+		}
 	}
 }

@@ -6,7 +6,7 @@
 /*   By: jode-vri <jode-vri@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/07 22:00:43 by convicts          #+#    #+#             */
-/*   Updated: 2020/11/15 12:24:29 by jode-vri         ###   ########.fr       */
+/*   Updated: 2022/12/12 08:49:24 by jode-vri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,9 +14,10 @@
 
 t_list	*ft_lstnew(void *content)
 {
-	t_list *list;
+	t_list	*list;
 
-	if ((list = malloc(sizeof(t_list))) == NULL)
+	list = malloc(sizeof(t_list));
+	if (!list)
 		return (NULL);
 	list->content = content;
 	list->next = NULL;

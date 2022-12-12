@@ -1,39 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lstmap.c                                        :+:      :+:    :+:   */
+/*   ft_strcmp.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jode-vri <jode-vri@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/11/15 12:11:37 by jode-vri          #+#    #+#             */
-/*   Updated: 2020/11/15 12:26:40 by jode-vri         ###   ########.fr       */
+/*   Created: 2022/12/12 08:40:17 by jode-vri          #+#    #+#             */
+/*   Updated: 2022/12/12 08:46:59 by jode-vri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-t_list	*ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *))
+int	ft_strcmp(const char *s1, const char *s2)
 {
-	t_list *list;
-	t_list *tmp;
-	t_list *new;
+	int	i;
 
-	if (!lst)
-		return (0);
-	if (!(list = ft_lstnew(f(lst->content))))
-		return (0);
-	new = list;
-	lst = lst->next;
-	while (lst)
-	{
-		if (!(tmp = ft_lstnew(f(lst->content))))
-		{
-			ft_lstclear(&new, del);
-			return (0);
-		}
-		list->next = tmp;
-		list = tmp;
-		lst = lst->next;
-	}
-	return (new);
+	i = 0;
+	if (!(s1) || !(s2))
+		return (-1);
+	while (s1[i] == s2[i] && s1[i] != '\0' && s2[i] != '\0')
+		i++;
+	return (s1[i] - s2[i]);
 }
