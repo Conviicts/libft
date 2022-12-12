@@ -48,23 +48,24 @@ OBJS_BONUS	= ${SRCS_BONUS:.c=.o}
 NAME		= libft.a
 
 .c.o:
-			gcc -Wall -Wextra -Werror -c $< -o ${<:.c=.o}
+			@gcc -Wall -Wextra -Werror -c $< -o ${<:.c=.o}
 
 $(NAME):	${OBJS}
-			ar -rcs ${NAME} ${OBJS}
-			ranlib ${NAME}
+			@ar -rcs ${NAME} ${OBJS}
+			@ranlib ${NAME}
+			@echo "Libft created !"
 
 all:		${NAME}
 
 bonus:		${OBJS_BONUS}
-			ar rc ${NAME} ${OBJS_BONUS}
-			ranlib ${NAME}
+			@ar rc ${NAME} ${OBJS_BONUS}
+			@ranlib ${NAME}
 
 clean:
-			rm -f ${OBJS} ${OBJS_BONUS}
+			@rm -f ${OBJS} ${OBJS_BONUS}
 
 fclean:		clean
-			rm -f ${NAME}
+			@rm -f ${NAME}
 
 re:			fclean all
 
