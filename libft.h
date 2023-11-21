@@ -6,7 +6,7 @@
 /*   By: jode-vri <jode-vri@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/09/06 21:56:35 by jode-vri          #+#    #+#             */
-/*   Updated: 2023/11/21 23:29:10 by jode-vri         ###   ########.fr       */
+/*   Updated: 2023/11/21 23:41:57 by jode-vri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ typedef struct	s_args {
 }				t_args;
 
 typedef struct	s_argsArray {
-	t_args	mappings;
+	t_args	*mappings;
 	size_t	len;
 }				t_argsArray;
 
