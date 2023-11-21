@@ -6,7 +6,7 @@
 /*   By: jode-vri <jode-vri@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/09/06 21:56:35 by jode-vri          #+#    #+#             */
-/*   Updated: 2020/11/16 10:32:18 by jode-vri         ###   ########.fr       */
+/*   Updated: 2023/11/21 23:29:10 by jode-vri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,19 @@
 # include <stdlib.h>
 # include <stdio.h>
 # include <unistd.h>
+# include <stdbool.h>
+
+typedef void (*funcArgsPtr)();
+
+typedef struct	s_args {
+	char		*option;
+	funcArgsPtr	function;
+}				t_args;
+
+typedef struct	s_argsArray {
+	t_args	mappings;
+	size_t	len;
+}				t_argsArray;
 
 typedef struct	s_list
 {
@@ -70,4 +83,5 @@ void			ft_lstiter(t_list *lst,
 void (*f)(void *));
 t_list			*ft_lstmap(t_list *lst, void *(*f)(void *),
 void (*del)(void *));
+bool			ft_parseargs(t_argsArray *args, char *option);
 #endif
