@@ -6,7 +6,7 @@
 /*   By: jode-vri <jode-vri@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/09/06 21:56:35 by jode-vri          #+#    #+#             */
-/*   Updated: 2023/11/21 23:46:55 by jode-vri         ###   ########.fr       */
+/*   Updated: 2023/11/22 00:01:28 by jode-vri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,13 +21,13 @@
 typedef void (*funcArgsPtr)();
 
 typedef struct	s_args {
-	char		*option;
-	funcArgsPtr	function;
+    char		*option;
+    funcArgsPtr	function;
 }				t_args;
 
 typedef struct	s_argsArray {
-	t_args	*mappings;
-	size_t	len;
+    t_args		*mappings;
+    size_t		len;
 }				t_argsArray;
 
 typedef struct	s_list
