@@ -6,7 +6,7 @@
 /*   By: jode-vri <jode-vri@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/09/06 21:56:35 by jode-vri          #+#    #+#             */
-/*   Updated: 2023/11/21 23:41:57 by jode-vri         ###   ########.fr       */
+/*   Updated: 2023/11/21 23:46:55 by jode-vri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -83,5 +83,5 @@ void			ft_lstiter(t_list *lst,
 void (*f)(void *));
 t_list			*ft_lstmap(t_list *lst, void *(*f)(void *),
 void (*del)(void *));
-bool			ft_parseargs(t_argsArray *args, char *option);
+bool			ft_parseargs(t_argsArray args, char *option);
 #endif
