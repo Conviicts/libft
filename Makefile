@@ -1,82 +1,36 @@
-SRCS		=	ft_memset.c  	\
-				ft_bzero.c   	\
-				ft_memcpy.c  	\
-				ft_memccpy.c	\
-				ft_memmove.c	\
-				ft_memchr.c		\
-				ft_memcmp.c		\
-				ft_strlen.c  	\
-			  	ft_isalpha.c 	\
-				ft_isdigit.c 	\
-				ft_isalnum.c 	\
-				ft_isascii.c 	\
-				ft_isprint.c 	\
-				ft_toupper.c 	\
-				ft_tolower.c 	\
-				ft_strchr.c  	\
-				ft_strrchr.c 	\
-				ft_strncmp.c 	\
-				ft_strlcpy.c 	\
-				ft_strlcat.c 	\
-				ft_strnstr.c 	\
-				ft_arraylen.c	\
-				ft_atoi.c	 	\
-				ft_calloc.c  	\
-				ft_strdup.c	 	\
-				ft_substr.c		\
-				ft_strjoin.c	\
-				ft_strtrim.c	\
-				ft_split.c		\
-				ft_itoa.c    	\
-				ft_strmapi.c	\
-				ft_putchar_fd.c	\
-				ft_putstr_fd.c	\
-				ft_putendl_fd.c \
-				ft_putnbr_fd.c	\
-				ft_lstnew.c			\
-				ft_lstadd_front.c	\
-				ft_lstsize.c		\
-				ft_lstlast.c		\
-				ft_lstadd_back.c	\
-				ft_lstdelone.c		\
-				ft_lstclear.c		\
-				ft_lstiter.c		\
-				ft_lstmap.c
-				
-SRCS_BONUS	=	ft_lstnew.c			\
-				ft_lstadd_front.c	\
-				ft_lstsize.c		\
-				ft_lstlast.c		\
-				ft_lstadd_back.c	\
-				ft_lstdelone.c		\
-				ft_lstclear.c		\
-				ft_lstiter.c		\
-				ft_lstmap.c
+SRCS        = $(wildcard *.c)
 
-OBJS		= ${SRCS:.c=.o}
-OBJS_BONUS	= ${SRCS_BONUS:.c=.o}
+OBJS_DIR    = objs
+OBJS        = $(addprefix $(OBJS_DIR)/, $(notdir $(SRCS:.c=.o)))
 
-NAME		= libft.a
+NAME        = libft.a
 
-.c.o:
-			gcc -Wall -Wextra -Werror -c $< -o ${<:.c=.o}
+GREEN       = \033[0;32m
+CYAN        = \033[0;36m
+RESET       = \033[0m
 
-$(NAME):	${OBJS}
-			ar -rcs ${NAME} ${OBJS}
-			ranlib ${NAME}
+$(OBJS_DIR)/%.o: %.c
+	@echo "$(CYAN)Compiling:$(RESET) $<"
+	@mkdir -p $(OBJS_DIR)
+	@gcc -Wall -Wextra -Werror -c $< -o $@
 
-all:		${NAME}
+$(NAME):	$(OBJS)
+	@ar -rcs $(NAME) $(OBJS)
+	@echo "$(GREEN)Library $(NAME) created successfully!$(RESET)"
 
-bonus:		${OBJS_BONUS}
-			ar rc ${NAME} ${OBJS_BONUS}
-			ranlib ${NAME}
+all:		$(NAME)
+.PHONY:		all
 
 clean:
-			rm -f ${OBJS} ${OBJS_BONUS}
+	@rm -rf $(OBJS_DIR)
+	@echo "$(GREEN)Object files removed!$(RESET)"
+.PHONY:		clean
+
 
 fclean:		clean
-			rm -f ${NAME}
+	@rm -f $(NAME)
+	@echo "$(GREEN)Library $(NAME) removed!$(RESET)"
+.PHONY:		fclean
 
 re:			fclean all
-
-.PHONY:		all clean fclean re
+.PHONY:		re
