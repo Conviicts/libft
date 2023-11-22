@@ -6,7 +6,7 @@
 /*   By: jode-vri <jode-vri@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/21 23:18:54 by jode-vri          #+#    #+#             */
-/*   Updated: 2023/11/22 00:57:02 by jode-vri         ###   ########.fr       */
+/*   Updated: 2023/11/22 15:33:44 by jode-vri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ bool	ft_parseargs(t_argsArray args, char *option, ...) {
 				if (option[1] == args.mappings[i].option) {
 					va_list vargs;
 					va_start(vargs, option);
-					args.mappings[i].function(vargs);
+					args.mappings[i].function(vargs, args.mappings[i].option);
 					va_end(vargs);
 				}
 			} else if (ft_strlen(option) > 2) {
@@ -28,7 +28,7 @@ bool	ft_parseargs(t_argsArray args, char *option, ...) {
 					if (option[j] == args.mappings[i].option) {
 						va_list vargs;
 						va_start(vargs, option);
-						args.mappings[i].function(vargs);
+						args.mappings[i].function(vargs, args.mappings[i].option);
 						va_end(vargs);
 					}
 				}

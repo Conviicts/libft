@@ -6,7 +6,7 @@
 /*   By: jode-vri <jode-vri@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/09/06 21:56:35 by jode-vri          #+#    #+#             */
-/*   Updated: 2023/11/22 00:41:15 by jode-vri         ###   ########.fr       */
+/*   Updated: 2023/11/22 15:33:16 by jode-vri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@
 # include <unistd.h>
 # include <stdbool.h>
 
-typedef void (*funcArgsPtr)();
+typedef void (*funcArgsPtr)(va_list, char);
 
 typedef struct	s_args {
     char		option;
